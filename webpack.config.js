@@ -1,6 +1,7 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const CopyPlugin = require("copy-webpack-plugin")
 
 const conf = {
     entry: "./src/index.tsx",
@@ -49,7 +50,10 @@ const conf = {
     plugins: [
         new HtmlWebpackPlugin({
             template: "./index.html"
-        })
+        }),
+        new CopyPlugin([
+            {from: "static", to: "static"}
+        ])
     ]
 }
 
